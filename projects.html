@@ -6,21 +6,26 @@
   <title>Projects — Illusion</title>
   <meta name="description" content="Selected immersive, 3D and interactive projects by Illusion studio." />
   <link rel="icon" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=Geist+Mono:wght@400;500&display=swap" />
   <meta name="theme-color" content="#efebe3" />
 </head>
 <body>
-  <main>
+  <a class="skip" href="#main">Skip to content</a>
+  <!--@header:projects-->
+  <main id="main">
     <section class="projects-hero">
       <h1 data-title>PROJECTS<sup data-count>10</sup></h1>
-      <div class="projects-filter" data-filter>
-        <button class="is-active" data-f="all">All</button>
-        <button data-f="web">Web</button>
-        <button data-f="webgl">WebGL</button>
-        <button data-f="3d">3D</button>
-        <button data-f="xr">XR & Installations</button>
+      <div class="projects-filter" data-filter role="group" aria-label="Filter projects">
+        <button type="button" class="is-active" aria-pressed="true" data-f="all">All</button>
+        <button type="button" aria-pressed="false" data-f="web">Web</button>
+        <button type="button" aria-pressed="false" data-f="webgl">WebGL</button>
+        <button type="button" aria-pressed="false" data-f="3d">3D</button>
+        <button type="button" aria-pressed="false" data-f="xr">XR & Installations</button>
       </div>
     </section>
-    <section class="projects-list" data-list></section>
+    <section class="projects-list" data-list aria-label="Project list"><!--@projects--></section>
     <section class="cta" id="talk">
       <canvas data-cta></canvas>
       <div class="cta__inner">
@@ -30,7 +35,7 @@
       </div>
     </section>
   </main>
-  <div data-footer></div>
+  <!--@footer:projects-->
   <script type="module" src="/src/projects-page.js"></script>
 </body>
 </html>

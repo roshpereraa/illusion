@@ -1,20 +1,21 @@
 import './styles.css';
-import { mountChrome, footerHTML, initScroll, initReveals, runLoader, gsap, ScrollTrigger } from './layout.js';
-import { scatterScene } from './scenes.js';
-import { projects, cardHTML, bindCardCursors } from './projects.js';
+import { mountChrome, initScroll, initReveals, runLoader, lazyScene, gsap, ScrollTrigger } from './layout.js';
+import { bindCardCursors } from './projects.js';
 
-document.querySelector('[data-footer]').outerHTML = footerHTML({ label: 'Home', href: '/' });
 const list = document.querySelector('[data-list]');
-list.innerHTML = projects.map(cardHTML).join('');
 mountChrome('projects');
 bindCardCursors();
-scatterScene(document.querySelector('[data-cta]'));
+const ctaCanvas = document.querySelector('[data-cta]');
+lazyScene(ctaCanvas, (m) => m.scatterScene(ctaCanvas));
 initScroll();
 
 document.querySelector('[data-filter]').addEventListener('click', (e) => {
   const btn = e.target.closest('button');
   if (!btn) return;
-  document.querySelectorAll('[data-filter] button').forEach((b) => b.classList.toggle('is-active', b === btn));
+  document.querySelectorAll('[data-filter] button').forEach((b) => {
+    b.classList.toggle('is-active', b === btn);
+    b.setAttribute('aria-pressed', b === btn);
+  });
   const f = btn.dataset.f;
   let n = 0;
   list.querySelectorAll('.card').forEach((c) => {

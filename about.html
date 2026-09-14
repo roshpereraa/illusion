@@ -6,10 +6,15 @@
   <title>About — Illusion</title>
   <meta name="description" content="Illusion is an independent immersive design studio of directors, 3D artists and creative developers." />
   <link rel="icon" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=Geist+Mono:wght@400;500&display=swap" />
   <meta name="theme-color" content="#0d0d0f" />
 </head>
 <body style="background:#0d0d0f">
-  <main>
+  <a class="skip" href="#main">Skip to content</a>
+  <!--@header:about-->
+  <main id="main">
     <section class="about-hero" data-dark>
       <canvas data-nebula></canvas>
       <h1 class="about-hero__word" data-word>ILLUSION</h1>
@@ -29,7 +34,7 @@
         <h2 data-reveal>CREW</h2>
         <p data-reveal>Twelve makers across direction, 3D and engineering. We keep the team deliberately small, so the people who pitch the idea are the people who build it. No hand-offs, no dilution.</p>
       </div>
-      <div class="team__grid" data-team></div>
+      <div class="team__grid" data-team><!--@team--></div>
     </section>
 
     <section class="recog" data-dark>
@@ -62,9 +67,9 @@
     </section>
 
     <section class="expertise">
-      <svg class="expertise__swoosh" viewBox="0 0 1440 900" preserveAspectRatio="none"><path data-swoosh d="M-50 700 C 300 400, 600 950, 900 520 S 1300 200, 1500 380" fill="none" stroke="#efebe3" stroke-width="34" stroke-linecap="round" opacity=".9"/></svg>
+      <svg aria-hidden="true" class="expertise__swoosh" viewBox="0 0 1440 900" preserveAspectRatio="none"><path data-swoosh d="M-50 700 C 300 400, 600 950, 900 520 S 1300 200, 1500 380" fill="none" stroke="#efebe3" stroke-width="34" stroke-linecap="round" opacity=".9"/></svg>
       <h2 data-reveal>What we<br/>do best</h2>
-      <div class="expertise__cards" data-cards></div>
+      <div class="expertise__cards" data-cards><!--@expertise--></div>
     </section>
 
     <section class="cta cta--accent" id="talk" style="background:#0d0d0f;color:#efebe3" data-dark>
@@ -76,7 +81,7 @@
       </div>
     </section>
   </main>
-  <div data-footer></div>
+  <!--@footer:about-->
   <script type="module" src="/src/about.js"></script>
 </body>
 </html>

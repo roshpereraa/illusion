@@ -1,20 +1,21 @@
 import './styles.css';
-import { mountChrome, footerHTML, initScroll, initReveals, runLoader, gsap, ScrollTrigger } from './layout.js';
-import { heroScene, flowScene, voyageScene, scatterScene } from './scenes.js';
-import { projects, cardHTML, bindCardCursors } from './projects.js';
+import { mountChrome, initScroll, initReveals, runLoader, lazyScene, gsap, ScrollTrigger } from './layout.js';
+import { bindCardCursors } from './projects.js';
 
-document.querySelector('[data-footer]').outerHTML = footerHTML({ label: 'About us', href: '/about.html' });
-document.querySelector('[data-featured]').innerHTML = projects.slice(0, 4).map(cardHTML).join('');
 mountChrome('home');
 bindCardCursors();
 
-heroScene(document.querySelector('[data-hero]'));
-flowScene(document.querySelector('[data-reel]'));
+const heroCanvas = document.querySelector('[data-hero]');
+const heroReady = lazyScene(heroCanvas, (m) => m.heroScene(heroCanvas));
+const reelCanvas = document.querySelector('[data-reel]');
+lazyScene(reelCanvas, (m) => m.flowScene(reelCanvas));
 
 const voyage = document.querySelector('[data-voyage]');
 let voyageProgress = 0;
-voyageScene(document.querySelector('[data-voyage-canvas]'), () => voyageProgress);
-scatterScene(document.querySelector('[data-cta]'));
+const voyageCanvas = document.querySelector('[data-voyage-canvas]');
+lazyScene(voyage, (m) => m.voyageScene(voyageCanvas, () => voyageProgress));
+const ctaCanvas = document.querySelector('[data-cta]');
+lazyScene(ctaCanvas, (m) => m.scatterScene(ctaCanvas));
 
 initScroll();
 
@@ -26,7 +27,7 @@ intro.innerHTML = intro.innerHTML
   .map((w) => `<span class="split-line" style="display:inline-block"><span>${w}</span></span>`)
   .join(' ');
 
-runLoader().then(() => {
+runLoader(heroReady).then(() => {
   gsap.from('[data-hero-intro] .split-line > span', { yPercent: 110, duration: 1.2, ease: 'expo.out', stagger: 0.025 });
   gsap.from('.hero__stage', { clipPath: 'inset(20% 10% 0 10% round 22px)', duration: 1.6, ease: 'expo.out' });
   gsap.from('.header > *', { y: -30, opacity: 0, duration: 1, ease: 'expo.out', stagger: 0.1 });
@@ -35,7 +36,7 @@ runLoader().then(() => {
 
 // Reel frame grows to full-bleed while the words slide apart
 gsap.timeline({ scrollTrigger: { trigger: '[data-reel-wrap]', start: 'top top', end: 'bottom bottom', scrub: true } })
-  .to('[data-reel-frame]', { width: '100vw', borderRadius: 0, ease: 'none' }, 0)
+  .to('[data-reel-frame]', { clipPath: 'inset(0% round 0px)', ease: 'none' }, 0)
   .to('[data-reel-l]', { xPercent: -60, ease: 'none' }, 0)
   .to('[data-reel-r]', { xPercent: 60, ease: 'none' }, 0);
 
