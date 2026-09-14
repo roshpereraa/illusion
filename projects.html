@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Illusion</title>
+  <meta name="description" content="Selected immersive, 3D and interactive projects by Illusion studio." />
+  <link rel="icon" href="/favicon.svg" />
+  <meta name="theme-color" content="#efebe3" />
+</head>
+<body>
+  <main>
+    <section class="projects-hero">
+      <h1 data-title>PROJECTS<sup data-count>10</sup></h1>
+      <div class="projects-filter" data-filter>
+        <button class="is-active" data-f="all">All</button>
+        <button data-f="web">Web</button>
+        <button data-f="webgl">WebGL</button>
+        <button data-f="3d">3D</button>
+        <button data-f="xr">XR & Installations</button>
+      </div>
+    </section>
+    <section class="projects-list" data-list></section>
+    <section class="cta" id="talk">
+      <canvas data-cta></canvas>
+      <div class="cta__inner">
+        <span class="mono cta__eyebrow">Your project could be next</span>
+        <h2>Let's make<br/>it <em>real.</em></h2>
+        <a href="mailto:work@illusion.studio" class="pill pill--dark">Start a project <span class="dot"></span></a>
+      </div>
+    </section>
+  </main>
+  <div data-footer></div>
+  <script type="module" src="/src/projects-page.js"></script>
+</body>
+</html>

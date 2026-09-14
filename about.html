@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Illusion</title>
+  <meta name="description" content="Illusion is an independent immersive design studio of directors, 3D artists and creative developers." />
+  <link rel="icon" href="/favicon.svg" />
+  <meta name="theme-color" content="#0d0d0f" />
+</head>
+<body style="background:#0d0d0f">
+  <main>
+    <section class="about-hero" data-dark>
+      <canvas data-nebula></canvas>
+      <h1 class="about-hero__word" data-word>ILLUSION</h1>
+      <span class="about-hero__scroll mono">Scroll to explore</span>
+    </section>
+
+    <section class="manifesto" data-dark data-manifesto>
+      <div class="manifesto__sticky">
+        <canvas data-manifesto-canvas></canvas>
+        <div class="manifesto__l" data-m-l>We are<br/>Illusion —<br/>an immersive<br/>design studio</div>
+        <div class="manifesto__r" data-m-r>Bending pixels<br/>into feelings</div>
+      </div>
+    </section>
+
+    <section class="team" data-dark>
+      <div class="team__head">
+        <h2 data-reveal>CREW</h2>
+        <p data-reveal>Twelve makers across direction, 3D and engineering. We keep the team deliberately small, so the people who pitch the idea are the people who build it. No hand-offs, no dilution.</p>
+      </div>
+      <div class="team__grid" data-team></div>
+    </section>
+
+    <section class="recog" data-dark>
+      <div class="recog__row" data-reveal>
+        <h3>Recognition <sup>07</sup></h3>
+        <ul class="recog__list">
+          <li><span>Site of the Day</span><span>×3</span><span>Placeholder — add yours</span></li>
+          <li><span>Best Immersive Experience</span><span>×2</span><span>Placeholder — add yours</span></li>
+          <li><span>Innovation in WebGL</span><span>×1</span><span>Placeholder — add yours</span></li>
+          <li><span>Gold — Interactive</span><span>×1</span><span>Placeholder — add yours</span></li>
+        </ul>
+      </div>
+      <div class="recog__row" data-reveal>
+        <h3>Writing <sup>03</sup></h3>
+        <ul class="recog__list">
+          <li><span>Designing for the 3-second stare</span><span>2026</span><span>Studio journal</span></li>
+          <li><span>Shaders are a brand asset</span><span>2025</span><span>Studio journal</span></li>
+          <li><span>Why we still sketch on paper</span><span>2024</span><span>Studio journal</span></li>
+        </ul>
+      </div>
+      <div class="recog__row" data-reveal>
+        <h3>Talks <sup>04</sup></h3>
+        <ul class="recog__list">
+          <li><span>Real-time is the new render</span><span>2026</span><span>Conference talk</span></li>
+          <li><span>Tiny teams, huge worlds</span><span>2025</span><span>Design festival</span></li>
+          <li><span>Motion that means something</span><span>2025</span><span>Meetup keynote</span></li>
+          <li><span>The browser is a stage</span><span>2024</span><span>Developer conference</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="expertise">
+      <svg class="expertise__swoosh" viewBox="0 0 1440 900" preserveAspectRatio="none"><path data-swoosh d="M-50 700 C 300 400, 600 950, 900 520 S 1300 200, 1500 380" fill="none" stroke="#efebe3" stroke-width="34" stroke-linecap="round" opacity=".9"/></svg>
+      <h2 data-reveal>What we<br/>do best</h2>
+      <div class="expertise__cards" data-cards></div>
+    </section>
+
+    <section class="cta cta--accent" id="talk" style="background:#0d0d0f;color:#efebe3" data-dark>
+      <canvas data-cta></canvas>
+      <div class="cta__inner">
+        <span class="mono cta__eyebrow">Ready to bend reality a little?</span>
+        <h2>Let's make<br/>it <em style="color:#ff4f1f">real.</em></h2>
+        <a href="mailto:work@illusion.studio" class="pill pill--light" style="background:#efebe3">Start a project <span class="dot" style="background:#ff4f1f"></span></a>
+      </div>
+    </section>
+  </main>
+  <div data-footer></div>
+  <script type="module" src="/src/about.js"></script>
+</body>
+</html>

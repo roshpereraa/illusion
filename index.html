@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Illusion — Immersive 3D & Interactive Studio</title>
+  <meta name="description" content="Illusion is an independent studio building immersive 3D worlds and interactive web experiences that make brands impossible to ignore." />
+  <link rel="icon" href="/favicon.svg" />
+  <meta name="theme-color" content="#0d0d0f" />
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <p class="hero__intro" data-hero-intro>We build immersive 3D worlds and interactive web experiences that make brands <em>impossible to ignore</em></p>
+      <div class="hero__stage">
+        <canvas data-hero></canvas>
+        <span class="hero__badge mono">Move your cursor — everything moves back</span>
+      </div>
+      <div class="hero__foot">
+        <span class="plus"></span><span class="plus"></span>
+        <span class="scroll">Scroll to discover</span>
+        <span class="plus"></span><span class="plus"></span>
+      </div>
+    </section>
+
+    <section class="approach">
+      <div class="approach__grid">
+        <div data-reveal>
+          <span class="label-pill"><span class="dot"></span>How we think</span>
+          <h2 class="approach__lead">Wonder is a strategy. We design the moment people stop scrolling.</h2>
+        </div>
+        <div class="approach__body" data-reveal>
+          <p>Trends fade fast, so we skip them. Every Illusion project begins with one question: what would make someone feel something here? The answer becomes the design, the code and the motion.</p>
+          <p>Our small team of directors, 3D artists and creative developers works as one unit, from first sketch to final frame, so the idea survives all the way to launch.</p>
+          <a href="/about.html" class="link-u">Meet the studio →</a>
+        </div>
+      </div>
+      <div class="reel-wrap" data-reel-wrap>
+        <div class="reel">
+          <div class="reel__frame" data-reel-frame>
+            <canvas data-reel></canvas>
+            <button class="reel__play" aria-label="Play showreel"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M6 3.5v13l11-6.5z"/></svg></button>
+          </div>
+          <div class="reel__words"><span data-reel-l>WATCH</span><span data-reel-r>REEL</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="work">
+      <div class="work__head">
+        <h2 data-reveal>Selected<br/>work</h2>
+        <span class="mono" data-reveal>2023 — 2026</span>
+      </div>
+      <div class="work__grid" data-featured></div>
+      <div class="work__more"><a href="/projects.html" class="pill pill--dark">All projects <span class="dot"></span></a></div>
+    </section>
+
+    <section class="voyage" data-dark data-voyage>
+      <div class="voyage__sticky">
+        <canvas data-voyage-canvas></canvas>
+        <div class="voyage__copy">
+          <p data-line><span>Step</span><span>past</span><span>the</span><span>screen</span></p>
+          <p data-line><span>where</span><span>make-believe</span></p>
+          <p data-line><span>feels</span><span>real</span></p>
+        </div>
+        <div class="voyage__progress"><i data-voyage-bar></i></div>
+        <span class="voyage__hint mono">Keep scrolling ↓</span>
+      </div>
+    </section>
+
+    <section class="cta" id="talk">
+      <canvas data-cta></canvas>
+      <div class="cta__inner">
+        <span class="mono cta__eyebrow">Got an idea that seems impossible?</span>
+        <h2>Let's make<br/>it <em>real.</em></h2>
+        <a href="mailto:work@illusion.studio" class="pill pill--dark">Start a project <span class="dot"></span></a>
+      </div>
+    </section>
+  </main>
+  <div data-footer></div>
+  <script type="module" src="/src/home.js"></script>
+</body>
+</html>
