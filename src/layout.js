@@ -4,6 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const shortAddress = (a) => (a.length > 12 ? `${a.slice(0, a.startsWith('0x') ? 6 : 4)}…${a.slice(-4)}` : a);
+
 export function mountChrome() {
   const header = document.querySelector('.header');
   const toggle = header.querySelector('[data-menu-toggle]');
@@ -38,6 +40,29 @@ export function mountChrome() {
       input.blur();
     })
   );
+
+  // Wallet: the connection code (and its dependencies) only loads when needed.
+  const walletBtn = header.querySelector('[data-wallet]');
+  const walletLabel = walletBtn.querySelector('[data-wallet-label]');
+  const loadWallet = () => import('./wallet.js');
+  const paintWallet = (s) => {
+    walletBtn.classList.toggle('is-connected', !!s);
+    if (s) walletLabel.textContent = shortAddress(s.address);
+    else walletLabel.innerHTML = 'Connect<span class="wallet-btn__more"> wallet</span>';
+    walletBtn.setAttribute('aria-label', s ? `Wallet connected: ${s.address}. Open wallet menu` : 'Connect wallet');
+  };
+  let stored = null;
+  try { stored = JSON.parse(localStorage.getItem('illusion-wallet')); } catch {}
+  if (stored?.address) {
+    paintWallet(stored); // instant, then verified silently against the extension
+    loadWallet().then((w) => { w.onSessionChange(paintWallet); return w.restore(); }).then(() => {}, () => paintWallet(null));
+  }
+  walletBtn.addEventListener('click', async () => {
+    setMenu(false);
+    const w = await loadWallet();
+    w.onSessionChange(paintWallet);
+    w.openWallet(walletBtn);
+  });
 
   // Social profiles aren't set up yet; keep the links inert rather than jumping to the top.
   document.querySelectorAll('a[data-soon]').forEach((a) => a.addEventListener('click', (e) => e.preventDefault()));

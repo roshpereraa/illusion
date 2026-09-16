@@ -18,6 +18,9 @@ export function headerHTML(active) {
       <button type="button" class="icon-btn" data-sound aria-label="Toggle sound" aria-pressed="false">
         <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 10h14"/></svg>
       </button>
+      <button type="button" class="pill pill--light wallet-btn" data-wallet aria-haspopup="dialog">
+        <span class="wallet-btn__dot" aria-hidden="true"></span><span data-wallet-label>Connect<span class="wallet-btn__more"> wallet</span></span>
+      </button>
       <a href="/#contact" class="pill pill--dark">Let's talk <span class="dot" aria-hidden="true"></span></a>
       <button type="button" class="pill pill--light" data-menu-toggle aria-expanded="false" aria-controls="site-menu"><span data-menu-label>Menu</span> <span class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span></span></button>
       <nav class="menu" id="site-menu" data-menu aria-label="Main">
